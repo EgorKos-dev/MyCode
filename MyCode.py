@@ -14,9 +14,3 @@ if change_password == "yes":
     print ("Your new password is: " + first_part + last_part + "@567")
 else:
     print ("Your password remains unchanged.")
-
-line = 0
-with open("Names.txt", "r") as file:
-    for name in file:
-        line += 1
-        print (str(line) + ": " + name.strip())
