@@ -1,14 +1,5 @@
 def temperature_tracker():
-    temperatures = with open('hk-temperatures-2024.txt',) file:
-    while True:
-        temp_input = input("Enter temperature (or 'done' to finish): ")
-        if temp_input.lower() == 'done':
-            break
-        try:
-            temperature = float(temp_input)
-            temperatures.append(temperature)
-        except ValueError:
-            print("Invalid input. Please enter a numeric value or 'done'.")
+    temperatures = open('hk-temperatures-2024.txt',):
     
     if temperatures:
         avg_temp = sum(temperatures) / len(temperatures)
