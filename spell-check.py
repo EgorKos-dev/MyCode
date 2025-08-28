@@ -12,7 +12,7 @@ def spell_check():
             mystery_words.append(word.strip().lower())
     for word in mystery_words:
         if word not in correct_words:
-            misspelled = misspelled + 1
+            misspelled += 1
 
 
 misspelled = 0
