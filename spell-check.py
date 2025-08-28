@@ -8,7 +8,7 @@ def spell_check():
     #Read the files and store the words in two separate lists
     with open("dictionary.txt", "r") as file:
         text = file.readlines()
-        for word in text:
+        for word in text:   
             correct_words.append(word.strip().lower())
     with open("mystery-text.txt", "r") as file:
         text = file.read()
