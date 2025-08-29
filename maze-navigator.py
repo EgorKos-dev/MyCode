@@ -27,6 +27,7 @@ def navigate_maze():
     visited = set()
     visited.add(start)
 
+    # Perform BFS
     while queue:
         (x, y), path = queue.popleft()
         if (x, y) == end:
@@ -40,4 +41,5 @@ def navigate_maze():
                 visited.add((nx, ny))
     print("No path found.")
 
+# Run the maze navigator
 navigate_maze()
