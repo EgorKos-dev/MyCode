@@ -7,27 +7,41 @@ def temperature_tracker():
     global avg_temp
     global max_temp
     global min_temp
+    # Initialize temporary lists to store raw and rounded temperatures
     templist = []
     roundlist = []
-    # Read temperatures from file and process them through temporary list into rounded list
-    with open('hk-temperatures-2024.txt', 'r') as file:
-        readtemp = file.readlines()
-        for line in readtemp:
-            Temp = float(line.strip())
-            templist.append(Temp)
-        for Temp in templist:
-            roundtemp = round(Temp)
-            roundlist.append(roundtemp)
-    # Calculate total, average, maximum, and minimum temperatures
-    tot_temp = sum(roundlist)
-    avg_temp = tot_temp / len(roundlist)
-    max_temp = max(roundlist)
-    min_temp = min(roundlist)
+    # Try to read temperatures from file and process them through temporary list into rounded list
+    try:
+        with open('hk-temperatures-2024.txt', 'r') as file:
+            readtemp = file.readlines()
+            for line in readtemp:
+                try:
+                    Temp = float(line.strip())
+                    templist.append(Temp)
+                # Add exception handling for invalid entries
+                except ValueError:
+                    print(f"Warning: Skipping invalid entry '{line.strip()}' (not a number).")
+            for Temp in templist:
+                roundtemp = round(Temp)
+                roundlist.append(roundtemp)
+        # Calculate total, average, maximum, and minimum temperatures
+        if roundlist:
+            tot_temp = sum(roundlist)
+            avg_temp = tot_temp / len(roundlist)
+            max_temp = max(roundlist)
+            min_temp = min(roundlist)
+    #Add exception handling for file not found
+    except FileNotFoundError:
+        print("Error: File 'hk-temperatures-2024.txt' not found.")
+        tot_temp = 0
+        avg_temp = 0
+        max_temp = 0
+        min_temp = 0
 # Initialize global variables
 tot_temp = 0
 avg_temp = 0
-max_temp = -100
-min_temp = 100
+max_temp = 0
+min_temp = 0
 # Run the temperature tracker function every 24 hours (86400 seconds)
 while True:
     temperature_tracker()
