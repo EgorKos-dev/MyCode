@@ -30,7 +30,7 @@ def temperature_tracker():
             avg_temp = tot_temp / len(roundlist)
             max_temp = max(roundlist)
             min_temp = min(roundlist)
-    #Add exception handling for file not found
+    # Add exception handling for file not found
     except FileNotFoundError:
         print("Error: File 'hk-temperatures-2024.txt' not found.")
         tot_temp = 0
