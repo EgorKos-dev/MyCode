@@ -5,7 +5,6 @@ def navigate_maze():
     # Define symbols
     start_symbol = "S"
     end_symbol = "E"
-    path_symbol = "."
     wall_symbol = "#"
     # Directions: up, down, left, right
     directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
