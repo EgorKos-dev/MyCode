@@ -32,6 +32,7 @@ def daisy_counter():
                 # Use pop() to remove the last entry from the stack
                 removed = daisy_counter.pop()
                 print(f"Removed {removed} daisies. Current stack: {daisy_counter}")
+                stack_limit += 1
             else:
                 # Show an error message if the stack is empty
                 print("The stack is empty. No daisies to remove.")
@@ -56,6 +57,7 @@ def daisy_counter():
                     print(daisy_counter.pop())
                     counter_sum -= daisy_counter[-1]
                 print("All daisies have been removed from the stack.")
+                stack_limit = 12
             else:
                 print("The stack is empty. No daisies to display.")
         # Show an error message if the stack limit is reached
