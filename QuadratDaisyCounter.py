@@ -50,12 +50,16 @@ def daisy_counter():
         # Add an option to perform LIFO (last in, first out) principle and display all counts in the stack by repeatedly popping until empty
         elif action == 'lifo':
             if daisy_counter:
+                # Perform LIFO by popping all elements and displaying them
                 print("Performing LIFO (last in, first out):")
                 while daisy_counter:
                     print("Current stack:", daisy_counter)
-                    print("Sum of daisies", counter_sum)
-                    print(daisy_counter.pop())
-                    counter_sum -= daisy_counter[-1]
+                    print("Sum of daisies:", counter_sum)
+                    # Pop the last entry and display it
+                    removed = daisy_counter.pop()
+                    print(f"Removed {removed} daisies.")
+                    # Update the counter sum per iteration
+                    counter_sum -= removed
                 print("All daisies have been removed from the stack.")
                 stack_limit = 12
             else:
@@ -63,7 +67,8 @@ def daisy_counter():
         # Show an error message if the stack limit is reached
         elif stack_limit == len(daisy_counter):
             print("Stack limit reached. Cannot add more daisies.")
+        # Handle invalid actions
         else:
             print("Invalid action. Please type 'push', 'pop', 'peek', or 'exit'.")
-
+# Call the main function to start the program
 daisy_counter()
