@@ -6,16 +6,17 @@ def inventory_checker():
     ListLength = len(InventoryList)
     # Prompt user for input and check if the item is in the inventory list
     print("Welcome to your inventory! Enter the item you are looking for:")
-    item = input().strip()
+    item = input().strip('.,!?;"()[]{}/')
     # Use a for loop and linear search to check if the item is in the inventory list
     for i in range(ListLength):
         if item.lower() == InventoryList[i].lower():
             ItemFound = True
+            FoundItem = InventoryList[i]
             # Exit the loop early if the item is found
             break
     # Print the result
     if ItemFound:
-        print(f"{item} found successfully in inventory!")
+        print(f"{FoundItem} found successfully in inventory!")
     # Handle the case where the item is not found
     else:
         print(f"Error: {item} is not in your inventory.")
